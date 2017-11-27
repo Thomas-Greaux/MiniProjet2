@@ -12,3 +12,6 @@ $(EXE_NAME): $(LINK_OBJS)
 
 %.o: %.cpp
 	$(COMPIL) $^ -o $@ $(FLAGS)
+
+clean:
+	rm -f $(LINK_OBJS)
