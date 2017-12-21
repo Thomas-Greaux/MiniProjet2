@@ -1,14 +1,19 @@
 COMPIL= g++ -c
 LINK= g++
 FLAGS= -Wall -std=c++11
-EXE_NAME= prog.exe
+EXE_NAME= algo.exe stat.exe
 
-SOURCES= main.cpp
+SOURCES= ./source/main_algo.cpp ./source/main_algo.cpp
 
 LINK_OBJS= $(SOURCES:.cpp=.o)
 
-$(EXE_NAME): $(LINK_OBJS)
-	$(LINK) $(LINK_OBJS) -o $@ $(FLAGS)
+all: $(EXE_NAME)
+
+algo.exe: ./source/main_algo.o
+	$(LINK) ./source/main_algo.o -o $@ $(FLAGS)
+
+stat.exe: ./source/main_stat.o
+	$(LINK) ./source/main_stat.o -o $@ $(FLAGS)
 
 %.o: %.cpp
 	$(COMPIL) $^ -o $@ $(FLAGS)
