@@ -1,6 +1,6 @@
 COMPIL= g++ -c
 LINK= g++
-FLAGS= -Wall -std=c++11
+FLAGS= -Wall -std=c++11 -g
 EXE_NAME= algo.exe stat.exe
 
 SOURCES= ./source/main_stat.cpp ./source/main_algo.cpp
