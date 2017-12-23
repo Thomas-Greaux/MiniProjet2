@@ -3,7 +3,7 @@ LINK= g++
 FLAGS= -Wall -std=c++11
 EXE_NAME= algo.exe stat.exe
 
-SOURCES= ./source/main_algo.cpp ./source/main_algo.cpp
+SOURCES= ./source/main_stat.cpp ./source/main_algo.cpp
 
 LINK_OBJS= $(SOURCES:.cpp=.o)
 
