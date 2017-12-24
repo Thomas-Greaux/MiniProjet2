@@ -27,10 +27,10 @@
 *.lib
 
 # Executables
+*.ex
 *.exe
 *.out
 *.app
 
 # Others
-.vscode/launch.json
-.vscode/tasks.json
+.vscode/

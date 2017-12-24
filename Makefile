@@ -1,22 +1,24 @@
-COMPIL= g++ -c
-LINK= g++
-FLAGS= -Wall -std=c++11 -g
-EXE_NAME= algo.exe stat.exe
+COMPILER = g++ -c
+LINK = g++
+FLAGS = -Wall -std=c++11 -g
+EXE_NAME = algo.ex stat.ex
 
-SOURCES= ./source/main_stat.cpp ./source/main_algo.cpp
+SOURCES = ./source/algorithm.cc ./source/almost_worst_fit.cc ./source/best_fit.cc ./source/bin_pack.cc ./source/first_fit.cc ./source/next_fit.cc ./source/parser.cc ./source/worst_fit.cc
+EXE_SOURCES = ./source/main_algo.cc ./source/main_stat.cc
 
-LINK_OBJS= $(SOURCES:.cpp=.o)
+LINK_OBJS = $(SOURCES:.cc=.o)
+EXE_LINK_OBJS = $(EXE_SOURCES:.cc=.o)
 
 all: $(EXE_NAME)
 
-algo.exe: ./source/main_algo.o
-	$(LINK) ./source/main_algo.o -o $@ $(FLAGS)
+algo.ex: $(LINK_OBJS) ./source/main_algo.o
+	$(LINK) $(FLAGS) $^ -o $@
 
-stat.exe: ./source/main_stat.o
-	$(LINK) ./source/main_stat.o -o $@ $(FLAGS)
+stat.ex: $(LINK_OBJS) ./source/main_stat.o
+	$(LINK) $(FLAGS) $^ -o $@
 
-%.o: %.cpp
-	$(COMPIL) $^ -o $@ $(FLAGS)
+%.o: %.cc
+	$(COMPILER) $(FLAGS) $^ -o $@
 
 clean:
-	rm -f $(LINK_OBJS)
+	rm -f $(EXE_NAME) $(EXE_LINK_OBJS) $(LINK_OBJS)
