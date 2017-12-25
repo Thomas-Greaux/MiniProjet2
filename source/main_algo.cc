@@ -27,15 +27,6 @@ void execute_example(string example_file_path)
 
 int main()
 {
-    BinPackingProblem bpp;
-    bpp.set_bin_pack_size(47);
-    bpp.add_object(90);
-    bpp.add_object(91);
-    bpp.add_object(92);
-
-    ofstream ofs("exemples/myexemple.txt");
-    ofs << bpp;
-
     execute_example("exemples/exemple100.txt");
     execute_example("exemples/exemple500.txt");
     execute_example("exemples/exemple1000.txt");
