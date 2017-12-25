@@ -11,10 +11,6 @@ void execute_example(string example_file_path)
     Algorithm* algo;
     int bin_pack_size;
     vector<int> objects_list;
-    /*
-    Parser parser;
-    parser.parse(example_file_path);
-    */
     BinPackingProblem parser;
     ifstream ifs(example_file_path);
     ifs >> parser; // parsing

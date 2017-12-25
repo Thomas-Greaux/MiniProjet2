@@ -26,7 +26,7 @@ public:
     void add_object(int object);
 
     friend istream& operator>> (istream& is, BinPackingProblem& bpp); //Parsing
-    friend ostream& operator<< (ostream& os, const BinPackingProblem& bpp);
+    friend ostream& operator<< (ostream& os, const BinPackingProblem& bpp); //Output
 };
 
 #endif
