@@ -8,7 +8,7 @@
 class WorstFit : public Algorithm {
 public:
     //Constructors / Destructor
-    WorstFit(const int& bin_pack_size, queue<int>& objects_list);
+    WorstFit(const int& bin_pack_size, vector<int>& objects_list);
     ~WorstFit() = default;
 
     //Functions

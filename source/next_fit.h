@@ -8,7 +8,7 @@
 class NextFit : public Algorithm {
 public:
     //Constructors / Destructor
-    NextFit(const int& bin_pack_size, queue<int>& objects_list);
+    NextFit(const int& bin_pack_size, vector<int>& objects_list);
     ~NextFit() = default;
 
     //Functions

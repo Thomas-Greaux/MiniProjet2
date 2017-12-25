@@ -14,7 +14,7 @@ using std::vector;
 class Algorithm {
 public:
     //Constructors / Destructor
-    Algorithm(const int& bin_pack_size, queue<int>& objects_list);
+    Algorithm(const int& bin_pack_size, vector<int>& objects_list);
     ~Algorithm() = default;
 
     //Functions
@@ -26,7 +26,7 @@ public:
 protected:
     int nb_bin_pack_used = 1;
     const int bin_pack_size;
-    queue<int> objects_list;
+    vector<int> objects_list;
 
 };
 

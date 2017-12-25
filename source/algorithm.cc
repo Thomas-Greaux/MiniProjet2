@@ -1,6 +1,6 @@
 #include "algorithm.h"
 
-Algorithm::Algorithm(const int& bin_pack_size, queue<int>& objects_list)
+Algorithm::Algorithm(const int& bin_pack_size, vector<int>& objects_list)
     : bin_pack_size(bin_pack_size)
     , objects_list(objects_list)
 {

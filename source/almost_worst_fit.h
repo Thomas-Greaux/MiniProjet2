@@ -8,7 +8,7 @@
 class AlmostWorstFit : public Algorithm {
 public:
     //Constructors / Destructor
-    AlmostWorstFit(const int& bin_pack_size, queue<int>& objects_list);
+    AlmostWorstFit(const int& bin_pack_size, vector<int>& objects_list);
     ~AlmostWorstFit() = default;
 
     //Functions
