@@ -1,7 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include "algorithm.h"
 #include "first_fit.h"
-#include "parser.h"
 #include "bin_packing_problem.h"
 
 using namespace std;
