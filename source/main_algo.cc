@@ -19,6 +19,7 @@ void execute_example(string example_file_path)
     algo = new FirstFit(bin_pack_size, objects_list);
     algo->run();
     cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    cout << "Sum of objects: " << parser.get_sum_objects() << endl;
 }
 
 int main()
@@ -26,6 +27,7 @@ int main()
     execute_example("exemples/exemple100.txt");
     execute_example("exemples/exemple500.txt");
     execute_example("exemples/exemple1000.txt");
+    execute_example("exemples/monexemple.txt");
 
     return 0;
 }

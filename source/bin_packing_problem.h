@@ -20,6 +20,7 @@ public:
     //Getters
     int get_bin_pack_size(void) const;
     vector<int> get_objects_list(void) const;
+    int get_sum_objects(void) const;
 
     //Setters
     void set_bin_pack_size(int new_bps);

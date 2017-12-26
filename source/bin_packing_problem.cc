@@ -25,6 +25,16 @@ void BinPackingProblem::add_object(int object)
     objects_list.push_back(object);
 }
 
+int BinPackingProblem::get_sum_objects() const
+{
+    int res = 0;
+    for(vector<int>::const_iterator it = objects_list.begin(); it != objects_list.end(); it++)
+    {
+        res += *it;
+    }
+    return res;
+}
+
 istream& operator>> (istream& is, BinPackingProblem& bpp)
 {
     string str;
