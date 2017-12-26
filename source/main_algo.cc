@@ -17,23 +17,16 @@ void execute_example(string example_file_path)
     ifs >> parser; // parsing
     bin_pack_size = parser.get_bin_pack_size();
     objects_list = parser.get_objects_list();
+
+    cout << "Sum of objects: " << parser.get_sum_objects() << endl;
+
     algo = new FirstFit(bin_pack_size, objects_list);
     algo->run();
     cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
-    int total = 0;
-    for (int object : objects_list) {
-        total += object;
-    }
-    cout << "Sum of objects: " << total << endl;
 
     algo = new WorstFit(bin_pack_size, objects_list);
     algo->run();
-    cout << "Worst Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
-    total = 0;
-    for (int object : objects_list) {
-        total += object;
-    }
-    cout << "Sum of objects: " << total << '\n' << endl;
+    cout << "Worst Fit bins used: " << algo->get_nb_bin_pack_used() << '\n' << endl;
 }
 
 int main()
@@ -41,6 +34,7 @@ int main()
     execute_example("exemples/exemple100.txt");
     execute_example("exemples/exemple500.txt");
     execute_example("exemples/exemple1000.txt");
+    execute_example("exemples/monexemple.txt");
 
     return 0;
 }
