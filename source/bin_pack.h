@@ -2,10 +2,8 @@
 #define _BIN_PACK_H
 
 #include <iostream>
-#include <queue>
 #include <vector>
 
-using std::queue;
 using std::vector;
 
 class BinPack {
@@ -19,7 +17,7 @@ public:
     void fill(const int& size);
 
     //Getters / Setters
-    int get_current_size(void) const;
+    int get_remaining_size(void) const;
 
 private:
     const int& bin_pack_size;

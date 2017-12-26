@@ -19,7 +19,7 @@ void BinPack::fill(const int& size)
     current_size += size;
 }
 
-int BinPack::get_current_size(void) const
+int BinPack::get_remaining_size(void) const
 {
-    return current_size;
+    return bin_pack_size - current_size;
 }

@@ -2,6 +2,7 @@
 #include <fstream>
 #include "algorithm.h"
 #include "first_fit.h"
+#include "worst_fit.h"
 #include "bin_packing_problem.h"
 
 using namespace std;
@@ -19,6 +20,20 @@ void execute_example(string example_file_path)
     algo = new FirstFit(bin_pack_size, objects_list);
     algo->run();
     cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    int total = 0;
+    for (int object : objects_list) {
+        total += object;
+    }
+    cout << "Sum of objects: " << total << endl;
+
+    algo = new WorstFit(bin_pack_size, objects_list);
+    algo->run();
+    cout << "Worst Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    total = 0;
+    for (int object : objects_list) {
+        total += object;
+    }
+    cout << "Sum of objects: " << total << '\n' << endl;
 }
 
 int main()

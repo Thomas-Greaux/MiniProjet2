@@ -1,10 +1,5 @@
 #include "bin_packing_problem.h"
 
-#include <string>
-
-using std::string;
-using std::endl;
-
 int BinPackingProblem::get_bin_pack_size(void) const
 {
     return bin_pack_size;

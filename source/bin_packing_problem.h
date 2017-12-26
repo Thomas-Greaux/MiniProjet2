@@ -1,12 +1,15 @@
 #ifndef _BIN_PACKING_PROBLEM_H
 #define _BIN_PACKING_PROBLEM_H
 
-#include <vector>
 #include <iostream>
+#include <string>
+#include <vector>
 
-using std::vector;
 using std::istream;
 using std::ostream;
+using std::endl;
+using std::string;
+using std::vector;
 
 class BinPackingProblem
 {
@@ -17,16 +20,19 @@ private:
 public:
     BinPackingProblem() = default;
 
+    //Functions
+    void add_object(int object);
+
     //Getters
     int get_bin_pack_size(void) const;
     vector<int> get_objects_list(void) const;
 
     //Setters
     void set_bin_pack_size(int new_bps);
-    void add_object(int object);
 
     friend istream& operator>> (istream& is, BinPackingProblem& bpp); //Parsing
     friend ostream& operator<< (ostream& os, const BinPackingProblem& bpp); //Output
+
 };
 
 #endif

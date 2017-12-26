@@ -12,15 +12,15 @@ void FirstFit::run(void)
     bins.push_back(new BinPack(bin_pack_size));
     for (vector<int>::iterator it = objects_list.begin(); it != objects_list.end(); it++)
     {
-        bool hasPopped = false;
+        bool hasFilled = false;
         for(BinPack* bin_pack : bins) {
             if (bin_pack->can_fill(*it)) {
                 bin_pack->fill(*it);
-                hasPopped = true;
+                hasFilled = true;
                 break;
             }
         }
-        if (!hasPopped) {
+        if (!hasFilled) {
             bins.push_back(new BinPack(bin_pack_size));
             nb_bin_pack_used++;
             bins.back()->fill(*it);
