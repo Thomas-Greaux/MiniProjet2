@@ -1,11 +1,11 @@
 #include "bin_packing_problem.h"
 
-int BinPackingProblem::get_bin_pack_size(void) const
+int BinPackingProblem::get_bin_pack_size() const
 {
     return bin_pack_size;
 }
 
-vector<int> BinPackingProblem::get_objects_list(void) const
+vector<int> BinPackingProblem::get_objects_list() const
 {
     return objects_list;
 }

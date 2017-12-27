@@ -12,7 +12,7 @@ public:
     ~BestFit() = default;
 
     //Functions
-    virtual void run(void);
+    virtual void run();
 
 };
 

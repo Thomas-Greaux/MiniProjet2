@@ -46,7 +46,7 @@ void ExampleGenerator::generate_example()
     }
 }
 
-string ExampleGenerator::get_distribution(void) const
+string ExampleGenerator::get_distribution() const
 {
     switch (distribution) {
         case Uniform: return "Uniform";

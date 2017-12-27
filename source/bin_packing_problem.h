@@ -22,17 +22,16 @@ public:
 
     //Functions
     void add_object(int object);
+    friend istream& operator>> (istream& is, BinPackingProblem& bpp); //Parsing
+    friend ostream& operator<< (ostream& os, const BinPackingProblem& bpp); //Output
 
     //Getters
-    int get_bin_pack_size(void) const;
-    vector<int> get_objects_list(void) const;
-    int get_sum_objects(void) const;
+    int get_bin_pack_size() const;
+    vector<int> get_objects_list() const;
+    int get_sum_objects() const;
 
     //Setters
     void set_bin_pack_size(int new_bps);
-
-    friend istream& operator>> (istream& is, BinPackingProblem& bpp); //Parsing
-    friend ostream& operator<< (ostream& os, const BinPackingProblem& bpp); //Output
 
 };
 

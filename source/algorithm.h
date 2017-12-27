@@ -15,13 +15,13 @@ class Algorithm {
 public:
     //Constructors / Destructor
     Algorithm(const int& bin_pack_size, vector<int>& objects_list);
-    ~Algorithm() = default;
+    virtual ~Algorithm() = default;
 
     //Functions
     virtual void run() = 0;
 
     //Getters / Setters
-    int get_nb_bin_pack_used(void) const;
+    int get_nb_bin_pack_used() const;
 
 protected:
     int nb_bin_pack_used = 1;

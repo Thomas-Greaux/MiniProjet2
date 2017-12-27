@@ -8,10 +8,7 @@ BinPack::BinPack(const int& bin_pack_size)
 
 bool BinPack::can_fill(const int& size) const
 {
-    if ((bin_pack_size - current_size) >= size) {
-        return true;
-    }
-    return false;
+    return (bin_pack_size - current_size) >= size;
 }
 
 void BinPack::fill(const int& size)
@@ -19,7 +16,7 @@ void BinPack::fill(const int& size)
     current_size += size;
 }
 
-int BinPack::get_remaining_size(void) const
+int BinPack::get_remaining_size() const
 {
     return bin_pack_size - current_size;
 }

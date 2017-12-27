@@ -17,7 +17,7 @@ public:
     void fill(const int& size);
 
     //Getters / Setters
-    int get_remaining_size(void) const;
+    int get_remaining_size() const;
 
 private:
     const int& bin_pack_size;

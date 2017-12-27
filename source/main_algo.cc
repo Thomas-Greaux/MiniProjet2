@@ -1,13 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include "algorithm.h"
+#include "almost_worst_fit.h"
 #include "first_fit.h"
 #include "worst_fit.h"
 #include "bin_packing_problem.h"
 
 using namespace std;
 
-void execute_example(string example_file_path)
+void execute_example(const string& example_file_path)
 {
     Algorithm* algo;
     int bin_pack_size;
@@ -20,6 +21,10 @@ void execute_example(string example_file_path)
 
     cout << "Sum of objects: " << parser.get_sum_objects() << endl;
 
+    algo = new AlmostWorstFit(bin_pack_size, objects_list);
+    algo->run();
+    cout << "Almost Worst Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+
     algo = new FirstFit(bin_pack_size, objects_list);
     algo->run();
     cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
@@ -27,6 +32,7 @@ void execute_example(string example_file_path)
     algo = new WorstFit(bin_pack_size, objects_list);
     algo->run();
     cout << "Worst Fit bins used: " << algo->get_nb_bin_pack_used() << '\n' << endl;
+
 }
 
 int main()

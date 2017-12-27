@@ -6,7 +6,7 @@ BestFit::BestFit(const int& bin_pack_size, vector<int>& objects_list)
 
 }
 
-void BestFit::run(void)
+void BestFit::run()
 {
 
 }

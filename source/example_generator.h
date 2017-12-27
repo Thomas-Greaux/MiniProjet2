@@ -21,7 +21,8 @@ private:
 
 public:
     ExampleGenerator(int bps = 100, int nb_obj = 10, Distribution d = Uniform);
-    void generate_example(void);
-    string get_distribution(void) const;
+    void generate_example();
+    string get_distribution() const;
+
 };
 #endif
