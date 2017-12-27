@@ -2,7 +2,9 @@
 #include <fstream>
 #include "algorithm.h"
 #include "almost_worst_fit.h"
+#include "best_fit.h"
 #include "first_fit.h"
+#include "next_fit.h"
 #include "worst_fit.h"
 #include "bin_packing_problem.h"
 
@@ -25,9 +27,17 @@ void execute_example(const string& example_file_path)
     algo->run();
     cout << "Almost Worst Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
 
+    algo = new BestFit(bin_pack_size, objects_list);
+    algo->run();
+    cout << "Best Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+
     algo = new FirstFit(bin_pack_size, objects_list);
     algo->run();
     cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+
+    algo = new NextFit(bin_pack_size, objects_list);
+    algo->run();
+    cout << "Next Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
 
     algo = new WorstFit(bin_pack_size, objects_list);
     algo->run();

@@ -6,21 +6,22 @@ WorstFit::WorstFit(const int& bin_pack_size, vector<int>& objects_list)
 
 }
 
-void WorstFit::run() {
+void WorstFit::run()
+{
     vector<BinPack*> bins = vector<BinPack*>();
     bins.push_back(new BinPack(bin_pack_size));
-    int worst_index = 0;
+    unsigned int worst_index = 0;
     bool hasWorst;
     for (int& object : objects_list) {
-        hasWorst = false;
         worst_index = 0;
-        for (unsigned int index = 0; index < bins.size(); index++) {
+        hasWorst = false;
+        for (unsigned int index = 0; index < nb_bin_pack_used; index++) {
             if (bins.at(index)->can_fill(object)) {
-                if (hasWorst && (bins.at(worst_index)->get_remaining_size() < bins.at(index)->get_remaining_size())) {
-                    worst_index = index;
-                } else {
+                if (!hasWorst) {
                     worst_index = index;
                     hasWorst = true;
+                } else if (bins.at(worst_index)->get_remaining_size() < bins.at(index)->get_remaining_size()) {
+                    worst_index = index;
                 }
             }
         }

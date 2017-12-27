@@ -10,22 +10,22 @@ void AlmostWorstFit::run()
 {
     vector<BinPack*> bins = vector<BinPack*>();
     bins.push_back(new BinPack(bin_pack_size));
-    int almost_worst_index = 0;
-    int worst_index = 0;
+    unsigned int almost_worst_index = 0;
+    unsigned int worst_index = 0;
     bool hasAlmostWorst;
     for (int& object : objects_list) {
-        hasAlmostWorst = false;
         almost_worst_index = 0;
         worst_index = 0;
-        for (unsigned int index = 0; index < bins.size(); index++) {
+        hasAlmostWorst = false;
+        for (unsigned int index = 0; index < nb_bin_pack_used; index++) {
             if (bins.at(index)->can_fill(object)) {
-                if (hasAlmostWorst && (bins.at(worst_index)->get_remaining_size() < bins.at(index)->get_remaining_size())) {
-                    almost_worst_index = worst_index;
-                    worst_index = index;
-                } else {
+                if (!hasAlmostWorst) {
                     almost_worst_index = index;
                     worst_index = almost_worst_index;
                     hasAlmostWorst = true;
+                } else if (bins.at(worst_index)->get_remaining_size() < bins.at(index)->get_remaining_size()) {
+                    almost_worst_index = worst_index;
+                    worst_index = index;
                 }
             }
         }

@@ -17,6 +17,7 @@ public:
     void fill(const int& size);
 
     //Getters / Setters
+    int get_current_size() const;
     int get_remaining_size() const;
 
 private:

@@ -24,7 +24,7 @@ public:
     int get_nb_bin_pack_used() const;
 
 protected:
-    int nb_bin_pack_used = 1;
+    unsigned int nb_bin_pack_used = 1;
     const int bin_pack_size;
     vector<int> objects_list;
 

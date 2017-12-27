@@ -6,16 +6,16 @@ FirstFit::FirstFit(const int& bin_pack_size, vector<int>& objects_list)
 
 }
 
-void FirstFit::run(void)
+void FirstFit::run()
 {
     vector<BinPack*> bins = vector<BinPack*>();
     bins.push_back(new BinPack(bin_pack_size));
-    for (vector<int>::iterator it = objects_list.begin(); it != objects_list.end(); it++)
-    {
-        bool hasFilled = false;
+    bool hasFilled;
+    for (int &it : objects_list) {
+        hasFilled = false;
         for(BinPack* bin_pack : bins) {
-            if (bin_pack->can_fill(*it)) {
-                bin_pack->fill(*it);
+            if (bin_pack->can_fill(it)) {
+                bin_pack->fill(it);
                 hasFilled = true;
                 break;
             }
@@ -23,7 +23,7 @@ void FirstFit::run(void)
         if (!hasFilled) {
             bins.push_back(new BinPack(bin_pack_size));
             nb_bin_pack_used++;
-            bins.back()->fill(*it);
+            bins.back()->fill(it);
         }
     }
     for_each(bins.begin(), bins.end(), [](BinPack* bp){ delete bp; });
