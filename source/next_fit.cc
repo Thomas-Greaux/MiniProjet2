@@ -8,7 +8,7 @@ NextFit::NextFit(const int& bin_pack_size, vector<int>& objects_list)
 
 void NextFit::run()
 {
-    vector<BinPack*> bins = vector<BinPack*>();
+    /*vector<BinPack*> bins = vector<BinPack*>();
     bins.push_back(new BinPack(bin_pack_size));
     unsigned int next_index = 0;
     bool hasFilled;
@@ -31,5 +31,22 @@ void NextFit::run()
             bins.back()->fill(it);
         }
     }
-    for_each(bins.begin(), bins.end(), [](BinPack* bp){ delete bp; });
+    for_each(bins.begin(), bins.end(), [](BinPack* bp){ delete bp; });*/
+	
+	//-----
+	
+	
+	vector<BinPack*> bins = vector<BinPack*>();
+    bins.push_back(new BinPack(bin_pack_size));
+	for (int &it : objects_list) {
+		if(bins.back()->can_fill(it)){
+			bins.back()->fill(it);
+		}
+		else{
+			bins.push_back(new BinPack(bin_pack_size));
+			nb_bin_pack_used++;
+			bins.back()->fill(it);
+		}
+	}
+	for_each(bins.begin(), bins.end(), [](BinPack* bp){ delete bp; });
 }
