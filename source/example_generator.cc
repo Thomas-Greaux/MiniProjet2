@@ -1,8 +1,7 @@
 #include "example_generator.h"
-
 #include <random>
 
-using std::random_device
+using std::random_device;
 
 using std::uniform_int_distribution;
 using std::geometric_distribution;
