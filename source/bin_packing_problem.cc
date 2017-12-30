@@ -2,6 +2,11 @@
 
 #include <algorithm>
 
+void BinPackingProblem::reset()
+{
+    objects_list.clear();
+}
+
 int BinPackingProblem::get_bin_pack_size() const
 {
     return bin_pack_size;

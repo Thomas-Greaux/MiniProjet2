@@ -7,9 +7,14 @@ using namespace std;
 
 int main()
 {
+    // Info for generating a bpp
     int bps;
     int nb_obj;
     int distribution;
+    Distribution d;
+
+    // Info for how many bpp we must generate
+    int nb_bpp;
 
     cout << "Entree la taille des sacs" << endl;
     cin >> bps;
@@ -27,7 +32,7 @@ int main()
         cin >> distribution;
     } while( distribution > 5 || distribution < 0);
 
-    Distribution d;
+
     switch (distribution) {
         case 1: d = Uniform; break;
         case 2: d = Geometric; break;
@@ -37,22 +42,20 @@ int main()
     }
 
     ExampleGenerator eg = {bps, nb_obj, d};
-    eg.generate_example();
-    BinPackingProblem bpp = eg.get_bpp();
 
-    ofstream ofs("./exemples/generated.txt");
+    cout << "Entree le nombre de problemes" << endl;
+    cin >> nb_bpp;
 
-    ofs << bpp;
+    BinPackingProblem bpp;
+    vector<BinPackingProblem> bpps;
 
-    cout << "Resultat : " << endl << endl;
-    cout << bpp << endl;
-
-    cout << endl << "Statistiques : " <<endl;
-    bpp.sort();
-    cout << "Minimum = " << bpp.get_min() << endl;
-    cout << "Maximum = " << bpp.get_max() << endl;
-    cout << "Moyenne = " << bpp.get_moy() << endl;
-    cout << "Medianne = " << bpp.get_med() << endl;
+    for(int i = 0; i < nb_bpp; i++)
+    {
+        eg.generate_example();
+        bpp = eg.get_bpp();
+        bpps.push_back(bpp);
+        cout << bpp << endl;
+    }
 
     return 0;
 }

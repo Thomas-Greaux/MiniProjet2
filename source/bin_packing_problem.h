@@ -33,6 +33,7 @@ public:
 
     //Setters
     void set_bin_pack_size(int new_bps);
+    void reset(void);
 
     //Stats
     void sort(void);

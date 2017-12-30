@@ -2,7 +2,7 @@
 
 #include <random>
 
-using std::default_random_engine;
+using std::random_device
 
 using std::uniform_int_distribution;
 using std::geometric_distribution;
@@ -17,9 +17,10 @@ ExampleGenerator::ExampleGenerator(int bps, int nb_obj, Distribution d): bin_pac
 
 void ExampleGenerator::generate_example()
 {
+    generated_bpp.reset();
     generated_bpp.set_bin_pack_size(bin_pack_size);
 
-    default_random_engine generator((unsigned int)time(0));
+    std::random_device generator;
     uniform_int_distribution<int> u_distribution(0, bin_pack_size); //no objects w/o weight, no objects that cannot fit
     geometric_distribution<int> g_distribution(0.3);
     poisson_distribution<int> p_distribution(bin_pack_size/2);
