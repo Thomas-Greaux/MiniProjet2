@@ -18,8 +18,8 @@ ExampleGenerator::ExampleGenerator(int bps, int nb_obj, Distribution d): bin_pac
 void ExampleGenerator::generate_example()
 {
     generated_bpp.set_bin_pack_size(bin_pack_size);
-    
-    default_random_engine generator;
+
+    default_random_engine generator((unsigned int)time(0));
     uniform_int_distribution<int> u_distribution(0, bin_pack_size); //no objects w/o weight, no objects that cannot fit
     geometric_distribution<int> g_distribution(0.5);
     poisson_distribution<int> p_distribution(bin_pack_size/2);

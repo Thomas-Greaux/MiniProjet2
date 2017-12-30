@@ -29,11 +29,11 @@ int main()
 
     Distribution d;
     switch (distribution) {
-        case Uniform: d = Uniform; break;
-        case Geometric: d = Geometric; break;
-        case Poisson: d = Poisson; break;
-        case Binomial: d = Binomial; break;
-        case NegativeBinomial: d = NegativeBinomial; break;
+        case 1: d = Uniform; break;
+        case 2: d = Geometric; break;
+        case 3: d = Poisson; break;
+        case 4: d = Binomial; break;
+        case 5: d = NegativeBinomial; break;
     }
 
     ExampleGenerator eg = {bps, nb_obj, d};
