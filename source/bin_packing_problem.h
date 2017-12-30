@@ -16,6 +16,7 @@ class BinPackingProblem
 private:
     int bin_pack_size = 0;
     vector<int> objects_list;
+    vector<int> sorted_objects_list;
 
 public:
     BinPackingProblem() = default;
@@ -32,6 +33,13 @@ public:
 
     //Setters
     void set_bin_pack_size(int new_bps);
+
+    //Stats
+    void sort(void);
+    int get_min(void) const;
+    int get_max(void) const;
+    double get_moy(void) const;
+    int get_med(void) const;
 
 };
 

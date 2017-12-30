@@ -38,12 +38,21 @@ int main()
 
     ExampleGenerator eg = {bps, nb_obj, d};
     eg.generate_example();
+    BinPackingProblem bpp = eg.get_bpp();
 
     ofstream ofs("./exemples/generated.txt");
 
-    ofs << eg.get_bpp();
+    ofs << bpp;
 
     cout << "Resultat : " << endl << endl;
-    cout << eg.get_bpp();
+    cout << bpp << endl;
+
+    cout << endl << "Statistiques : " <<endl;
+    bpp.sort();
+    cout << "Minimum = " << bpp.get_min() << endl;
+    cout << "Maximum = " << bpp.get_max() << endl;
+    cout << "Moyenne = " << bpp.get_moy() << endl;
+    cout << "Medianne = " << bpp.get_med() << endl;
+
     return 0;
 }

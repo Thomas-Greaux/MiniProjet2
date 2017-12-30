@@ -1,5 +1,7 @@
 #include "bin_packing_problem.h"
 
+#include <algorithm>
+
 int BinPackingProblem::get_bin_pack_size() const
 {
     return bin_pack_size;
@@ -28,6 +30,38 @@ int BinPackingProblem::get_sum_objects() const
         res += *it;
     }
     return res;
+}
+
+void BinPackingProblem::sort()
+{
+    sorted_objects_list = objects_list;
+    std::sort(sorted_objects_list.begin(), sorted_objects_list.end());
+}
+
+int BinPackingProblem::get_min() const
+{
+    return sorted_objects_list.at(0);
+}
+
+int BinPackingProblem::get_max() const
+{
+    return sorted_objects_list.at(sorted_objects_list.size()-1);
+}
+
+double BinPackingProblem::get_moy() const
+{
+    int moy = 0;
+    for(vector<int>::const_iterator it = objects_list.begin(); it != objects_list.end(); it++)
+    {
+        moy += *it;
+    }
+    moy /= objects_list.size();
+    return moy;
+}
+
+int BinPackingProblem::get_med() const
+{
+    return sorted_objects_list.at(sorted_objects_list.size()/2);
 }
 
 istream& operator>> (istream& is, BinPackingProblem& bpp)
