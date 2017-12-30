@@ -21,7 +21,7 @@ void ExampleGenerator::generate_example()
 
     default_random_engine generator((unsigned int)time(0));
     uniform_int_distribution<int> u_distribution(0, bin_pack_size); //no objects w/o weight, no objects that cannot fit
-    geometric_distribution<int> g_distribution(0.5);
+    geometric_distribution<int> g_distribution(0.3);
     poisson_distribution<int> p_distribution(bin_pack_size/2);
     binomial_distribution<int> b_distribution(bin_pack_size/2, 0.5);
     negative_binomial_distribution<int> nb_distribution(bin_pack_size/2, 0.5);
