@@ -12,7 +12,6 @@ using namespace std;
 
 void execute_example(const string& example_file_path)
 {
-    Algorithm* algo;
     int bin_pack_size;
     vector<int> objects_list;
     BinPackingProblem parser;
@@ -23,26 +22,25 @@ void execute_example(const string& example_file_path)
 
     cout << "Sum of objects: " << parser.get_sum_objects() << endl;
 
-    algo = new AlmostWorstFit(bin_pack_size, objects_list);
-    algo->run();
-    cout << "Almost Worst Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    AlmostWorstFit awf = AlmostWorstFit(bin_pack_size, objects_list);
+    awf.run();
+    cout << "Almost Worst Fit bins used: " << awf.get_nb_bin_pack_used() << endl;
 
-    algo = new BestFit(bin_pack_size, objects_list);
-    algo->run();
-    cout << "Best Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    BestFit bf = BestFit(bin_pack_size, objects_list);
+    bf.run();
+    cout << "Best Fit bins used: " << bf.get_nb_bin_pack_used() << endl;
 
-    algo = new FirstFit(bin_pack_size, objects_list);
-    algo->run();
-    cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    FirstFit ff = FirstFit(bin_pack_size, objects_list);
+    ff.run();
+    cout << "First Fit bins used: " << ff.get_nb_bin_pack_used() << endl;
 
-    algo = new NextFit(bin_pack_size, objects_list);
-    algo->run();
-    cout << "Next Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
+    NextFit nf = NextFit(bin_pack_size, objects_list);
+    nf.run();
+    cout << "Next Fit bins used: " << nf.get_nb_bin_pack_used() << endl;
 
-    algo = new WorstFit(bin_pack_size, objects_list);
-    algo->run();
-    cout << "Worst Fit bins used: " << algo->get_nb_bin_pack_used() << '\n' << endl;
-
+    WorstFit wf = WorstFit(bin_pack_size, objects_list);
+    wf.run();
+    cout << "Worst Fit bins used: " << wf.get_nb_bin_pack_used() << '\n' << endl;
 }
 
 int main()

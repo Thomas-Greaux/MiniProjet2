@@ -14,7 +14,7 @@ public:
     ~FirstFit() = default;
 
     //Functions
-    virtual void run(void);
+    virtual void run();
 
 };
 

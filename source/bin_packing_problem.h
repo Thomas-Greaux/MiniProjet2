@@ -33,14 +33,14 @@ public:
 
     //Setters
     void set_bin_pack_size(int new_bps);
-    void reset(void);
+    void reset();
 
     //Stats
-    void sort(void);
-    int get_min(void) const;
-    int get_max(void) const;
-    double get_moy(void) const;
-    int get_med(void) const;
+    void sort();
+    int get_min() const;
+    int get_max() const;
+    double get_moy() const;
+    int get_med() const;
 
 };
 

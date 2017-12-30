@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 
 #include "example_generator.h"
 #include "algorithm.h"
@@ -22,14 +21,14 @@ int main()
     // Info for how many bpp we must generate
     int nb_bpp;
 
-    cout << "Entree la taille des sacs" << endl;
+    cout << "Entrez la taille des sacs" << endl;
     cin >> bps;
 
-    cout << endl << "Entree le nombre d'objets" << endl;
+    cout << endl << "Entrez le nombre d'objets" << endl;
     cin >> nb_obj;
 
     do {
-        cout << endl << "Entree la distribution des objets" << endl;
+        cout << endl << "Entrez la distribution des objets" << endl;
         cout << " 1 - Uniforme" << endl;
         cout << " 2 - Geometrique" << endl;
         cout << " 3 - Poisson" << endl;
@@ -49,7 +48,7 @@ int main()
 
     ExampleGenerator eg = {bps, nb_obj, d};
 
-    cout << endl << "Entree le nombre de problemes" << endl;
+    cout << endl << "Entrez le nombre de problemes" << endl;
     cin >> nb_bpp;
 
     BinPackingProblem bpp;
@@ -65,7 +64,6 @@ int main()
 
     cout << endl << endl;
 
-    Algorithm* algo;
     int bin_pack_size;
     vector<int> objects_list;
     for(vector<BinPackingProblem>::iterator it = bpps.begin(); it != bpps.end(); it++)
@@ -73,30 +71,25 @@ int main()
         bin_pack_size = it->get_bin_pack_size();
         objects_list = it->get_objects_list();
 
-        algo = new AlmostWorstFit(bin_pack_size, objects_list);
-        algo->run();
-        cout << "Almost Worst Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
-        delete algo;
+        AlmostWorstFit awf = AlmostWorstFit(bin_pack_size, objects_list);
+        awf.run();
+        cout << "Almost Worst Fit bins used: " << awf.get_nb_bin_pack_used() << endl;
 
-        algo = new BestFit(bin_pack_size, objects_list);
-        algo->run();
-        cout << "Best Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
-        delete algo;
+        BestFit bf = BestFit(bin_pack_size, objects_list);
+        bf.run();
+        cout << "Best Fit bins used: " << bf.get_nb_bin_pack_used() << endl;
 
-        algo = new FirstFit(bin_pack_size, objects_list);
-        algo->run();
-        cout << "First Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
-        delete algo;
+        FirstFit ff = FirstFit(bin_pack_size, objects_list);
+        ff.run();
+        cout << "First Fit bins used: " << ff.get_nb_bin_pack_used() << endl;
 
-        algo = new NextFit(bin_pack_size, objects_list);
-        algo->run();
-        cout << "Next Fit bins used: " << algo->get_nb_bin_pack_used() << endl;
-        delete algo;
+        NextFit nf = NextFit(bin_pack_size, objects_list);
+        nf.run();
+        cout << "Next Fit bins used: " << nf.get_nb_bin_pack_used() << endl;
 
-        algo = new WorstFit(bin_pack_size, objects_list);
-        algo->run();
-        cout << "Worst Fit bins used: " << algo->get_nb_bin_pack_used() << '\n' << endl;
-        delete algo;
+        WorstFit wf = WorstFit(bin_pack_size, objects_list);
+        wf.run();
+        cout << "Worst Fit bins used: " << wf.get_nb_bin_pack_used() << '\n' << endl;
     }
 
     return 0;

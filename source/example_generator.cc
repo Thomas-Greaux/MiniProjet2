@@ -46,7 +46,7 @@ void ExampleGenerator::generate_example()
     }
 }
 
-BinPackingProblem ExampleGenerator::get_bpp(void) const
+BinPackingProblem ExampleGenerator::get_bpp() const
 {
     return generated_bpp;
 }

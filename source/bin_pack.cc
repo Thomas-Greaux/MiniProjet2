@@ -1,7 +1,7 @@
 #include "bin_pack.h"
 
 BinPack::BinPack(const int& bin_pack_size)
-    : bin_pack_size(bin_pack_size)
+        : bin_pack_size(bin_pack_size)
 {
 
 }

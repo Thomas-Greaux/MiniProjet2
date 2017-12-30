@@ -1,7 +1,7 @@
 #include "first_fit.h"
 
 FirstFit::FirstFit(const int& bin_pack_size, vector<int>& objects_list)
-    : Algorithm(bin_pack_size, objects_list)
+        : Algorithm(bin_pack_size, objects_list)
 {
 
 }
